@@ -17,11 +17,13 @@ export const Footer: React.FC = () => {
                 </h2>
 
                 <div className="flex flex-col items-center gap-6">
-                    <Button className="text-xl px-12 py-6 bg-[#F26522] hover:bg-[#ff7b3d] shadow-[8px_8px_0px_0px_#050505]">
-                        OPEN FIRST PACK FOR FREE
-                    </Button>
+                    <a href="https://app.unicronx.fun" target="_blank" rel="noopener noreferrer">
+                        <Button className="text-xl px-12 py-6 bg-[#F26522] hover:bg-[#ff7b3d] shadow-[8px_8px_0px_0px_#050505]">
+                            OPEN FIRST PACK FOR FREE
+                        </Button>
+                    </a>
 
-                    <a href="#" className="font-mono font-bold hover:underline hover:text-[#F26522] transition-colors flex items-center gap-2">
+                    <a href="https://app.unicronx.fun" target="_blank" rel="noopener noreferrer" className="font-mono font-bold hover:underline hover:text-[#F26522] transition-colors flex items-center gap-2">
                         VIEW LEADERBOARD <span className="text-xl">→</span>
                     </a>
                 </div>
@@ -61,7 +63,7 @@ export const Footer: React.FC = () => {
                 </div>
 
                 <div className="mt-12 font-mono text-xs text-gray-400">
-                    © 2024 FANTASY YC. NOT AFFILIATED WITH Y COMBINATOR. THIS IS A GAME.
+                    © 2026 UNICORNX. THIS IS A GAME.
                 </div>
             </div>
         </footer>

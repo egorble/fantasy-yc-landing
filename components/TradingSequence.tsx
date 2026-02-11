@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Check, X, Smartphone, Zap } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 import { COLORS } from '../constants';
 
 export const TradingSequence: React.FC = () => {
@@ -21,7 +21,7 @@ export const TradingSequence: React.FC = () => {
     const phoneOpacity = useTransform(smoothProgress, [0, 0.05], [0, 1]);
 
     // 2. First Swipe RIGHT - "Buy" (15% - 35%)
-    const card1X = useTransform(smoothProgress, [0.15, 0.35], [0, 500]);
+    const card1X = useTransform(smoothProgress, [0.15, 0.35], [0, 300]);
     const card1Rotate = useTransform(smoothProgress, [0.15, 0.35], [0, 25]);
     const card1Opacity = useTransform(smoothProgress, [0.3, 0.38], [1, 0]);
     const buyOverlayOpacity = useTransform(smoothProgress, [0.18, 0.28], [0, 1]);
@@ -32,7 +32,7 @@ export const TradingSequence: React.FC = () => {
     const card2Opacity = useTransform(smoothProgress, [0.15, 0.35, 0.7, 0.78], [0.6, 1, 1, 0]);
 
     // 4. Second Swipe LEFT - "Pass" (55% - 75%)
-    const card2X = useTransform(smoothProgress, [0.55, 0.75], [0, -500]);
+    const card2X = useTransform(smoothProgress, [0.55, 0.75], [0, -300]);
     const card2Rotate = useTransform(smoothProgress, [0.55, 0.75], [0, -25]);
     const passOverlayOpacity = useTransform(smoothProgress, [0.58, 0.68], [0, 1]);
 
@@ -69,8 +69,8 @@ export const TradingSequence: React.FC = () => {
                     style={{ y: textY, opacity: rightTextOpacity }}
                     className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0"
                 >
-                    <h2 className="text-[18vw] font-black text-gray-200 leading-[0.8]">SWIPE</h2>
-                    <h2 className="text-[18vw] font-black text-white text-stroke-2 text-stroke-gray-300 leading-[0.8]">RIGHT</h2>
+                    <h2 className="text-[15vw] md:text-[18vw] font-black text-gray-200 leading-[0.8]">SWIPE</h2>
+                    <h2 className="text-[15vw] md:text-[18vw] font-black text-white text-stroke-2 text-stroke-gray-300 leading-[0.8]">RIGHT</h2>
                 </motion.div>
 
                 {/* PARALLAX BACKGROUND TEXT - LEFT SWIPE */}
@@ -78,8 +78,8 @@ export const TradingSequence: React.FC = () => {
                     style={{ y: textY, opacity: leftTextOpacity }}
                     className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0"
                 >
-                    <h2 className="text-[18vw] font-black text-gray-200 leading-[0.8]">SWIPE</h2>
-                    <h2 className="text-[18vw] font-black text-white text-stroke-2 text-stroke-gray-300 leading-[0.8]">LEFT</h2>
+                    <h2 className="text-[15vw] md:text-[18vw] font-black text-gray-200 leading-[0.8]">SWIPE</h2>
+                    <h2 className="text-[15vw] md:text-[18vw] font-black text-white text-stroke-2 text-stroke-gray-300 leading-[0.8]">LEFT</h2>
                 </motion.div>
 
                 {/* SIDE TEXT INFO (Desktop Only) */}
@@ -100,186 +100,113 @@ export const TradingSequence: React.FC = () => {
                 {/* PHONE CONTAINER */}
                 <motion.div
                     style={{ scale: phoneScale, opacity: phoneOpacity }}
-                    className="relative z-20 w-[340px] h-[680px] bg-black rounded-[3.5rem] border-8 border-black shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] p-3 flex flex-col items-center"
+                    className="relative z-20 w-[280px] h-[560px] sm:w-[310px] sm:h-[620px] md:w-[340px] md:h-[680px] bg-black rounded-[2.5rem] sm:rounded-[3rem] md:rounded-[3.5rem] border-[6px] sm:border-8 border-black shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] md:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] p-2 sm:p-3 flex flex-col items-center"
                 >
                     {/* Glossy Reflection */}
-                    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/10 to-transparent pointer-events-none rounded-r-[3rem] z-30"></div>
+                    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/10 to-transparent pointer-events-none rounded-r-[2rem] sm:rounded-r-[2.5rem] md:rounded-r-[3rem] z-30"></div>
 
                     {/* Dynamic Island / Notch */}
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-black rounded-full z-40 flex items-center justify-center gap-2">
+                    <div className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 w-24 sm:w-28 md:w-32 h-6 sm:h-7 md:h-8 bg-black rounded-full z-40 flex items-center justify-center gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
                     </div>
 
                     {/* SCREEN */}
-                    <div className="w-full h-full bg-gray-50 rounded-[2.8rem] overflow-hidden relative flex flex-col">
+                    <div className="w-full h-full bg-gray-50 rounded-[2rem] sm:rounded-[2.4rem] md:rounded-[2.8rem] overflow-hidden relative flex flex-col">
 
                         {/* STATUS BAR */}
-                        <div className="h-14 px-6 pt-6 flex justify-between items-end pb-2 bg-white/80 backdrop-blur-sm z-20">
-                            <span className="font-bold text-xs tracking-wide">9:41</span>
+                        <div className="h-12 sm:h-14 px-4 sm:px-6 pt-5 sm:pt-6 flex justify-between items-end pb-1 sm:pb-2 bg-white/80 backdrop-blur-sm z-20">
+                            <span className="font-bold text-[10px] sm:text-xs tracking-wide">9:41</span>
                             <div className="flex gap-1">
-                                <div className="w-4 h-3 bg-black rounded-sm"></div>
-                                <div className="w-0.5 h-3 bg-black/20 rounded-sm"></div>
+                                <div className="w-3 h-2.5 sm:w-4 sm:h-3 bg-black rounded-sm"></div>
+                                <div className="w-0.5 h-2.5 sm:h-3 bg-black/20 rounded-sm"></div>
                             </div>
                         </div>
 
                         {/* APP HEADER */}
-                        <div className="px-6 py-2 flex justify-between items-center z-20">
-                            <span className="font-black text-xl tracking-tighter">FantasyYC</span>
-                            <div className="px-2 py-1 bg-black text-[#CCFF00] font-mono text-xs font-bold rounded">
+                        <div className="px-4 sm:px-6 py-1.5 sm:py-2 flex justify-between items-center z-20">
+                            <span className="font-black text-lg sm:text-xl tracking-tighter">UnicornX</span>
+                            <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-black text-[#CCFF00] font-mono text-[10px] sm:text-xs font-bold rounded">
                                 420.69 PTS
                             </div>
                         </div>
 
                         {/* CARDS AREA */}
-                        <div className="flex-1 relative flex items-center justify-center w-full min-h-[400px]">
+                        <div className="flex-1 relative flex items-center justify-center w-full min-h-[300px] sm:min-h-[350px] md:min-h-[400px]">
 
                             {/* --- THIRD CARD (Back-most, appears after second swipe) --- */}
                             <motion.div
                                 style={{ scale: card3Scale, y: card3Y, opacity: card3Opacity }}
-                                className="absolute w-[90%] h-[85%] bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden flex flex-col origin-bottom"
+                                className="absolute w-[90%] h-[85%] rounded-2xl shadow-xl overflow-hidden origin-bottom"
                             >
-                                <div className="h-3/5 bg-gray-100 relative">
-                                    <img src="https://picsum.photos/seed/startup789/300/400" className="w-full h-full object-cover" />
-                                    <div className="absolute top-3 left-3 flex gap-2">
-                                        <span className="bg-purple-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">SEED</span>
-                                        <span className="bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded border border-white/20">FINTECH</span>
-                                    </div>
-                                </div>
-                                <div className="p-4 bg-white flex-1">
-                                    <h3 className="text-2xl font-black uppercase leading-none mb-1">PayFlow</h3>
-                                    <p className="text-gray-500 text-sm font-medium">Austin • S25</p>
-                                </div>
+                                <img src="/1.png" className="w-full h-full object-cover" />
                             </motion.div>
 
                             {/* --- SECOND CARD (Middle, swipes LEFT) --- */}
                             <motion.div
                                 style={{ x: card2X, rotate: card2Rotate, scale: card2Scale, y: card2Y, opacity: card2Opacity }}
-                                className="absolute w-[90%] h-[85%] bg-white rounded-2xl border-2 border-black shadow-2xl overflow-hidden flex flex-col z-10 origin-bottom-left"
+                                className="absolute w-[90%] h-[85%] rounded-2xl shadow-2xl overflow-hidden z-10 origin-bottom-left"
                             >
-                                <div className="h-3/5 bg-gray-800 relative">
-                                    <img src="https://picsum.photos/seed/startup456/400/500" className="w-full h-full object-cover" />
-                                    <div className="absolute top-3 left-3 flex gap-2">
-                                        <span className="bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">PRE-SEED</span>
-                                        <span className="bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded border border-white/20">CRYPTO</span>
-                                    </div>
+                                <img src="/3.png" className="w-full h-full object-cover" />
 
-                                    {/* "PASS" OVERLAY */}
-                                    <motion.div
-                                        style={{ opacity: passOverlayOpacity }}
-                                        className="absolute inset-0 bg-red-500/90 flex items-center justify-center z-20 backdrop-blur-[2px]"
-                                    >
-                                        <div className="border-[6px] border-white px-6 py-2 rotate-12 bg-black shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)]">
-                                            <h2 className="text-5xl font-black text-white uppercase tracking-tighter">PASS</h2>
-                                        </div>
-                                    </motion.div>
-                                </div>
-
-                                <div className="p-5 flex-1 flex flex-col justify-between bg-white relative">
-                                    <div>
-                                        <h3 className="text-3xl font-black uppercase leading-none mb-1">ChainVault</h3>
-                                        <p className="text-gray-500 text-sm font-medium">Miami • W25</p>
+                                {/* "PASS" OVERLAY */}
+                                <motion.div
+                                    style={{ opacity: passOverlayOpacity }}
+                                    className="absolute inset-0 bg-red-500/90 flex items-center justify-center z-20 backdrop-blur-[2px]"
+                                >
+                                    <div className="border-4 sm:border-[6px] border-white px-4 sm:px-6 py-1.5 sm:py-2 rotate-12 bg-black shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)]">
+                                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tighter">PASS</h2>
                                     </div>
-                                    <div className="space-y-3">
-                                        <div className="flex justify-between items-center text-sm">
-                                            <span className="text-gray-400 font-bold text-xs tracking-wider">VALUATION</span>
-                                            <span className="font-mono font-bold">$8M</span>
-                                        </div>
-                                        <div className="flex items-end gap-1 h-8 w-full opacity-50">
-                                            {[30, 45, 35, 50, 40, 55, 45].map((h, i) => (
-                                                <div key={i} style={{ height: `${h}%` }} className="flex-1 rounded-sm bg-gray-300"></div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
+                                </motion.div>
                             </motion.div>
 
                             {/* --- FIRST CARD (Foreground, swipes RIGHT) --- */}
                             <motion.div
                                 style={{ x: card1X, rotate: card1Rotate, opacity: card1Opacity }}
-                                className="absolute w-[90%] h-[85%] bg-white rounded-2xl border-2 border-black shadow-2xl overflow-hidden flex flex-col z-20 cursor-grab active:cursor-grabbing origin-bottom-right"
+                                className="absolute w-[90%] h-[85%] rounded-2xl shadow-2xl overflow-hidden z-20 cursor-grab active:cursor-grabbing origin-bottom-right"
                             >
-                                {/* Image Section */}
-                                <div className="h-3/5 bg-gray-800 relative group">
-                                    <img src="https://picsum.photos/seed/startup123/400/500" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                <img src="/1.png" className="w-full h-full object-cover" />
 
-                                    {/* Tags */}
-                                    <div className="absolute top-3 left-3 flex gap-2">
-                                        <span className="bg-[#F26522] text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">SERIES A</span>
-                                        <span className="bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded border border-white/20">AI/ML</span>
+                                {/* "BOUGHT" OVERLAY */}
+                                <motion.div
+                                    style={{ opacity: buyOverlayOpacity }}
+                                    className="absolute inset-0 bg-[#CCFF00]/90 flex items-center justify-center z-20 backdrop-blur-[2px]"
+                                >
+                                    <div className="border-4 sm:border-[6px] border-black px-4 sm:px-6 py-1.5 sm:py-2 -rotate-12 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase tracking-tighter">BOUGHT</h2>
                                     </div>
-
-                                    {/* "BOUGHT" OVERLAY */}
-                                    <motion.div
-                                        style={{ opacity: buyOverlayOpacity }}
-                                        className="absolute inset-0 bg-[#CCFF00]/90 flex items-center justify-center z-20 backdrop-blur-[2px]"
-                                    >
-                                        <div className="border-[6px] border-black px-6 py-2 -rotate-12 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                                            <h2 className="text-5xl font-black text-black uppercase tracking-tighter">BOUGHT</h2>
-                                        </div>
-                                    </motion.div>
-                                </div>
-
-                                {/* Info Section */}
-                                <div className="p-5 flex-1 flex flex-col justify-between bg-white relative">
-                                    <div>
-                                        <h3 className="text-3xl font-black uppercase leading-none mb-1">Nexus AI</h3>
-                                        <p className="text-gray-500 text-sm font-medium">San Francisco • W24</p>
-                                    </div>
-
-                                    <div className="space-y-3">
-                                        <div className="flex justify-between items-center text-sm">
-                                            <span className="text-gray-400 font-bold text-xs tracking-wider">VALUATION</span>
-                                            <span className="font-mono font-bold">$125M</span>
-                                        </div>
-
-                                        {/* Mini Chart */}
-                                        <div className="flex items-end gap-1 h-8 w-full opacity-50">
-                                            {[40, 65, 45, 80, 55, 90, 100].map((h, i) => (
-                                                <div key={i} style={{ height: `${h}%` }} className={`flex-1 rounded-sm ${i === 6 ? 'bg-[#F26522]' : 'bg-gray-300'}`}></div>
-                                            ))}
-                                        </div>
-
-                                        <div className="flex justify-between items-end pt-2 border-t border-gray-100">
-                                            <div className="flex items-center gap-1 text-[#F26522] font-bold text-xs">
-                                                <Zap size={14} fill="currentColor" />
-                                                <span>TRENDING</span>
-                                            </div>
-                                            <div className="text-right">
-                                                <p className="text-xs font-bold text-black bg-[#CCFF00] px-1.5 py-0.5 rounded shadow-[2px_2px_0px_0px_#000]">+24% APY</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </motion.div>
                             </motion.div>
                         </div>
 
                         {/* APP FOOTER / CONTROLS */}
-                        <div className="h-24 bg-white/50 backdrop-blur-md border-t border-gray-200 flex items-center justify-evenly px-8 pb-4">
+                        <div className="h-20 sm:h-24 bg-white/50 backdrop-blur-md border-t border-gray-200 flex items-center justify-evenly px-6 sm:px-8 pb-3 sm:pb-4">
                             {/* Pass Button */}
                             <motion.button
-                                className="w-14 h-14 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 transition-colors shadow-sm"
+                                className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 transition-colors shadow-sm"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                             >
-                                <X size={28} strokeWidth={3} />
+                                <X size={22} strokeWidth={3} className="sm:hidden" />
+                                <X size={28} strokeWidth={3} className="hidden sm:block" />
                             </motion.button>
 
                             {/* Super Like / Details */}
                             <motion.button
-                                className="w-10 h-10 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center hover:bg-blue-100 hover:text-blue-500 transition-colors"
+                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center hover:bg-blue-100 hover:text-blue-500 transition-colors"
                                 whileHover={{ scale: 1.1 }}
                             >
-                                <div className="w-1.5 h-1.5 bg-current rounded-full mx-[1px]"></div>
-                                <div className="w-1.5 h-1.5 bg-current rounded-full mx-[1px]"></div>
-                                <div className="w-1.5 h-1.5 bg-current rounded-full mx-[1px]"></div>
+                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-current rounded-full mx-[1px]"></div>
+                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-current rounded-full mx-[1px]"></div>
+                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-current rounded-full mx-[1px]"></div>
                             </motion.button>
 
                             {/* Buy Button */}
                             <motion.button
                                 style={{ scale: checkBtnScale, backgroundColor: checkBtnBg, color: checkIconColor }}
-                                className="w-16 h-16 rounded-full border-2 border-[#CCFF00] flex items-center justify-center shadow-lg relative"
+                                className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-[#CCFF00] flex items-center justify-center shadow-lg relative"
                             >
-                                <Check size={32} strokeWidth={4} />
+                                <Check size={24} strokeWidth={4} className="sm:hidden" />
+                                <Check size={32} strokeWidth={4} className="hidden sm:block" />
                             </motion.button>
                         </div>
                     </div>

@@ -26,11 +26,12 @@ export const HeroSequence: React.FC = () => {
 
     // STAGE 4: DATA SYNC
     const bgDarkness = useTransform(smoothProgress, [0.55, 0.65], ["#F0F0F0", "#050505"]);
-    const legendaryCardScale = useTransform(smoothProgress, [0.55, 0.7], [1, 1.5]);
+    const legendaryCardScale = useTransform(smoothProgress, [0.55, 0.7], [1, 1.3]);
     const legendaryCardY = useTransform(smoothProgress, [0.55, 0.7], [0, 0]);
     const otherCardsOpacity = useTransform(smoothProgress, [0.55, 0.6], [1, 0]);
     const newsFeedOpacity = useTransform(smoothProgress, [0.65, 0.7], [0, 1]);
     const newsFeedX = useTransform(smoothProgress, [0.65, 0.75], [100, 0]);
+    const newsFeedY = useTransform(smoothProgress, [0.65, 0.75], [50, 0]);
 
     // Dynamic Values
     const [valuation, setValuation] = useState(10);
@@ -73,13 +74,13 @@ export const HeroSequence: React.FC = () => {
 
                 {/* HERO TEXT */}
                 <motion.div
-                    className="absolute top-20 z-10 text-center px-4"
+                    className="absolute top-16 md:top-20 z-10 text-center px-4"
                     style={{ opacity: useTransform(scrollYProgress, [0, 0.1], [1, 0]) }}
                 >
-                    <h1 className="text-6xl md:text-8xl font-black mb-4 tracking-tighter uppercase">
+                    <h1 className="text-4xl sm:text-5xl md:text-8xl font-black mb-4 tracking-tighter uppercase">
                         Spot the <span className="text-[#F26522]">Unicorns</span>.
                     </h1>
-                    <p className="text-xl md:text-2xl font-mono text-gray-600">Own the upside.</p>
+                    <p className="text-lg md:text-2xl font-mono text-gray-600">Own the upside.</p>
                 </motion.div>
 
                 {/* BOOSTER PACK */}
@@ -91,7 +92,7 @@ export const HeroSequence: React.FC = () => {
                         x: packShakeX,
                         opacity: packOpacity
                     }}
-                    className="relative z-20 w-64 h-96 md:w-[320px] md:h-[480px] mt-24 md:mt-32"
+                    className="relative z-20 w-48 h-72 sm:w-64 sm:h-96 md:w-[320px] md:h-[480px] mt-20 sm:mt-24 md:mt-32"
                 >
                     {/* OPENING ANIMATION WRAPPER */}
                     <div className="w-full h-full relative">
@@ -122,19 +123,19 @@ export const HeroSequence: React.FC = () => {
                             <div className="absolute -top-1 w-full h-2 bg-[radial-gradient(circle,transparent_50%,#f3f4f6_50%)] bg-[length:10px_10px]"></div>
 
                             {/* Main Graphics */}
-                            <div className="mt-16 text-center space-y-1 z-10">
-                                <h1 className="text-5xl font-black tracking-tighter text-black leading-[0.85]">
-                                    FANTASY<br />
-                                    <span className="text-[#F26522]">YC</span>
+                            <div className="mt-12 sm:mt-16 text-center space-y-1 z-10">
+                                <h1 className="text-3xl sm:text-5xl font-black tracking-tighter text-black leading-[0.85]">
+                                    UNICORN<br />
+                                    <span className="text-[#F26522]">X</span>
                                 </h1>
-                                <div className="w-32 h-1 bg-black mx-auto mt-4 mb-2 rounded-full"></div>
-                                <p className="font-mono text-[10px] text-gray-500 font-bold tracking-wider uppercase">Contains 5 Founder Cards</p>
+                                <div className="w-24 sm:w-32 h-1 bg-black mx-auto mt-4 mb-2 rounded-full"></div>
+                                <p className="font-mono text-[8px] sm:text-[10px] text-gray-500 font-bold tracking-wider uppercase">Contains 5 Founder Cards</p>
                             </div>
 
                             {/* Token/Sticker */}
-                            <div className="mt-auto mb-12">
-                                <div className="w-16 h-16 rounded-full bg-[#CCFF00] border-2 border-black flex items-center justify-center shadow-lg transform rotate-12">
-                                    <span className="font-black text-2xl text-black">?</span>
+                            <div className="mt-auto mb-8 sm:mb-12">
+                                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#CCFF00] border-2 border-black flex items-center justify-center shadow-lg transform rotate-12">
+                                    <span className="font-black text-xl sm:text-2xl text-black">?</span>
                                 </div>
                             </div>
 
@@ -161,12 +162,12 @@ export const HeroSequence: React.FC = () => {
                 {/* CARDS CONTAINER */}
                 <motion.div
                     style={{ scale: cardsScale, opacity: cardsOpacity }}
-                    className="absolute z-30 flex items-center justify-center w-full h-full mt-24 md:mt-32"
+                    className="absolute z-30 flex items-center justify-center w-full h-full mt-20 sm:mt-24 md:mt-32"
                 >
                     {STARTUPS.map((startup, index) => {
-                        // Calculate radial layout
-                        const angle = (index - 2) * 15; // -30, -15, 0, 15, 30
-                        const xOffset = (index - 2) * 200;
+                        // Calculate radial layout — smaller spread on mobile
+                        const angle = (index - 2) * 15;
+                        const xOffset = (index - 2) * 100; // Reduced from 200
 
                         const isLegendary = startup.legendary;
 
@@ -180,7 +181,7 @@ export const HeroSequence: React.FC = () => {
                                     ),
                                     y: useTransform(smoothProgress,
                                         [0.2, 0.4, 0.55],
-                                        [0, Math.abs(index - 2) * 20, isLegendary ? 0 : 500] // Others fall down
+                                        [0, Math.abs(index - 2) * 20, isLegendary ? 0 : 500]
                                     ),
                                     rotate: useTransform(smoothProgress,
                                         [0.2, 0.4, 0.55],
@@ -190,44 +191,44 @@ export const HeroSequence: React.FC = () => {
                                     zIndex: isLegendary ? 50 : 40 - Math.abs(index - 2),
                                     opacity: isLegendary ? 1 : otherCardsOpacity,
                                 }}
-                                className="absolute w-64 h-96"
+                                className="absolute w-40 h-60 sm:w-52 sm:h-80 md:w-64 md:h-96"
                             >
                                 {/* CARD UI */}
-                                <div className={`w-full h-full bg-white border-4 border-black rounded-xl flex flex-col relative overflow-hidden transition-shadow duration-300 ${isLegendary ? 'shadow-[0px_0px_50px_rgba(204,255,0,0.6)]' : 'shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]'}`}>
+                                <div className={`w-full h-full bg-white border-2 sm:border-4 border-black rounded-xl flex flex-col relative overflow-hidden transition-shadow duration-300 ${isLegendary ? 'shadow-[0px_0px_30px_rgba(204,255,0,0.6)] md:shadow-[0px_0px_50px_rgba(204,255,0,0.6)]' : 'shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]'}`}>
                                     {isLegendary && (
                                         <div className="absolute top-0 left-0 w-full h-1 bg-[#CCFF00] z-20 animate-pulse" />
                                     )}
 
                                     {/* Card Image */}
-                                    <div className="h-1/2 bg-gray-200 border-b-4 border-black relative">
+                                    <div className="h-1/2 bg-gray-200 border-b-2 sm:border-b-4 border-black relative">
                                         <img
                                             src={`https://picsum.photos/seed/${startup.name}/400/300`}
                                             alt={startup.name}
                                             className="w-full h-full object-cover grayscale contrast-125"
                                         />
-                                        <div className="absolute bottom-0 left-0 bg-black text-white px-2 py-1 font-mono text-xs">
+                                        <div className="absolute bottom-0 left-0 bg-black text-white px-1.5 py-0.5 sm:px-2 sm:py-1 font-mono text-[10px] sm:text-xs">
                                             {startup.batch}
                                         </div>
                                     </div>
 
                                     {/* Card Body */}
-                                    <div className="p-4 flex flex-col flex-1 justify-between bg-white">
+                                    <div className="p-2 sm:p-4 flex flex-col flex-1 justify-between bg-white">
                                         <div>
-                                            <div className="flex justify-between items-start mb-2">
-                                                <h3 className="text-2xl font-black uppercase leading-none">{startup.name}</h3>
-                                                <span className="font-mono text-xs border border-black px-1 rounded">{startup.ticker}</span>
+                                            <div className="flex justify-between items-start mb-1 sm:mb-2">
+                                                <h3 className="text-base sm:text-xl md:text-2xl font-black uppercase leading-none">{startup.name}</h3>
+                                                <span className="font-mono text-[8px] sm:text-xs border border-black px-0.5 sm:px-1 rounded">{startup.ticker}</span>
                                             </div>
-                                            <p className="text-xs text-gray-500 font-mono uppercase">{startup.type}</p>
+                                            <p className="text-[8px] sm:text-xs text-gray-500 font-mono uppercase">{startup.type}</p>
                                         </div>
 
-                                        <div className="mt-4">
-                                            <div className="flex justify-between text-xs font-bold mb-1">
+                                        <div className="mt-2 sm:mt-4">
+                                            <div className="flex justify-between text-[8px] sm:text-xs font-bold mb-1">
                                                 <span>VALUATION</span>
                                                 <span className={isLegendary ? "text-[#F26522]" : ""}>
                                                     {isLegendary ? `$${valuation}B` : `$${startup.valuation}`}
                                                 </span>
                                             </div>
-                                            <div className="w-full h-2 bg-gray-200 border border-black relative">
+                                            <div className="w-full h-1.5 sm:h-2 bg-gray-200 border border-black relative">
                                                 <motion.div
                                                     className="h-full bg-[#CCFF00]"
                                                     style={{ width: isLegendary ? `${valuation}%` : '40%' }}
@@ -242,27 +243,27 @@ export const HeroSequence: React.FC = () => {
 
                     {/* NEWS FEED OVERLAY (Appears in Stage 4) */}
                     <motion.div
-                        style={{ opacity: newsFeedOpacity, x: newsFeedX }}
-                        className="absolute right-4 md:right-20 top-1/2 -translate-y-1/2 w-80 z-50 pointer-events-none"
+                        style={{ opacity: newsFeedOpacity, x: newsFeedX, y: newsFeedY }}
+                        className="absolute right-2 sm:right-4 md:right-20 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 w-64 sm:w-72 md:w-80 z-50 pointer-events-none"
                     >
-                        <div className="bg-black/90 border border-[#CCFF00] p-4 text-[#CCFF00] font-mono text-sm mb-4 shadow-[4px_4px_0px_0px_#CCFF00]">
+                        <div className="bg-black/90 border border-[#CCFF00] p-3 sm:p-4 text-[#CCFF00] font-mono text-xs sm:text-sm mb-2 sm:mb-4 shadow-[4px_4px_0px_0px_#CCFF00]">
                             <div className="flex items-center gap-2 mb-2 border-b border-[#CCFF00]/30 pb-2">
-                                <Radio className="w-4 h-4 animate-pulse" />
-                                <span className="font-bold">LIVE SIGNAL</span>
+                                <Radio className="w-3 h-3 sm:w-4 sm:h-4 animate-pulse" />
+                                <span className="font-bold text-xs sm:text-sm">LIVE SIGNAL</span>
                             </div>
-                            <p className="mb-2">BREAKING: OpenAI announces GPT-5 release date.</p>
-                            <div className="flex justify-between text-xs text-white/70">
+                            <p className="mb-2 text-xs sm:text-sm">BREAKING: OpenAI announces GPT-5 release date.</p>
+                            <div className="flex justify-between text-[10px] sm:text-xs text-white/70">
                                 <span>2m ago</span>
                                 <span className="text-[#CCFF00] font-bold">+15% IMPACT</span>
                             </div>
                         </div>
 
-                        <div className="bg-black/80 border-l-4 border-[#F26522] p-4 text-white font-mono text-sm shadow-lg">
+                        <div className="bg-black/80 border-l-4 border-[#F26522] p-3 sm:p-4 text-white font-mono text-xs sm:text-sm shadow-lg">
                             <div className="flex items-center gap-2 mb-2">
-                                <TrendingUp className="w-4 h-4 text-[#F26522]" />
-                                <span className="font-bold text-[#F26522]">MARKET REACTION</span>
+                                <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-[#F26522]" />
+                                <span className="font-bold text-[#F26522] text-xs sm:text-sm">MARKET REACTION</span>
                             </div>
-                            <p>Trading volume up 400% in last hour.</p>
+                            <p className="text-xs sm:text-sm">Trading volume up 400% in last hour.</p>
                         </div>
                     </motion.div>
                 </motion.div>
@@ -270,7 +271,7 @@ export const HeroSequence: React.FC = () => {
                 {/* STAGE INDICATORS (Optional) */}
                 <motion.div
                     style={{ opacity: useTransform(smoothProgress, [0.9, 1], [1, 0]) }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center"
+                    className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 text-center"
                 >
                     <p className="font-mono text-xs text-gray-500 mb-2">SCROLL TO TRADE</p>
                     <div className="w-0.5 h-8 bg-black/20 mx-auto overflow-hidden">
