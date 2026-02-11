@@ -136,7 +136,7 @@ export const TradingSequence: React.FC = () => {
                             {/* --- THIRD CARD (Back-most, appears after second swipe) --- */}
                             <motion.div
                                 style={{ scale: card3Scale, y: card3Y, opacity: card3Opacity }}
-                                className="absolute w-[88%] h-[92%] rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden origin-bottom"
+                                className="absolute w-[88%] h-[92%] rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden origin-bottom outline outline-1 outline-white/20 -outline-offset-1"
                             >
                                 <img src="/4.png" className="w-full h-full object-contain" />
                             </motion.div>
@@ -144,7 +144,7 @@ export const TradingSequence: React.FC = () => {
                             {/* --- SECOND CARD (Middle, swipes LEFT) --- */}
                             <motion.div
                                 style={{ x: card2X, rotate: card2Rotate, scale: card2Scale, y: card2Y, opacity: card2Opacity }}
-                                className="absolute w-[88%] h-[92%] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden z-10 origin-bottom-left"
+                                className="absolute w-[88%] h-[92%] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden z-10 origin-bottom-left outline outline-1 outline-white/20 -outline-offset-1"
                             >
                                 <img src="/3.png" className="w-full h-full object-contain" />
 
@@ -162,7 +162,7 @@ export const TradingSequence: React.FC = () => {
                             {/* --- FIRST CARD (Foreground, swipes RIGHT) --- */}
                             <motion.div
                                 style={{ x: card1X, rotate: card1Rotate, opacity: card1Opacity }}
-                                className="absolute w-[88%] h-[92%] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden z-20 cursor-grab active:cursor-grabbing origin-bottom-right"
+                                className="absolute w-[88%] h-[92%] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden z-20 cursor-grab active:cursor-grabbing origin-bottom-right outline outline-1 outline-white/20 -outline-offset-1"
                             >
                                 <img src="/1.png" className="w-full h-full object-contain" />
 
