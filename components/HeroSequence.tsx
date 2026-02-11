@@ -129,7 +129,7 @@ export const HeroSequence: React.FC = () => {
                                     <span className="text-[#F26522]">X</span>
                                 </h1>
                                 <div className="w-24 sm:w-32 h-1 bg-black mx-auto mt-4 mb-2 rounded-full"></div>
-                                <p className="font-mono text-[8px] sm:text-[10px] text-gray-500 font-bold tracking-wider uppercase">Contains 5 Founder Cards</p>
+                                <p className="font-mono text-[8px] sm:text-[10px] text-gray-500 font-bold tracking-wider uppercase">Contains 5 Startup Cards</p>
                             </div>
 
                             {/* Token/Sticker */}

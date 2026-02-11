@@ -41,6 +41,7 @@ sudo mkdir -p "$APP_DIR"
 
 # Copy current directory to server source
 sudo cp -r . "$REPO_DIR/"
+sudo chown -R $(whoami):$(whoami) "$REPO_DIR"
 cd "$REPO_DIR"
 
 npm install
@@ -65,7 +66,7 @@ sudo tee /etc/nginx/sites-available/unicornx > /dev/null <<'NGINX'
 server {
     listen 80;
     listen [::]:80;
-    server_name unicornx.fun www.unicornx.fun;
+    server_name unicornx.fun;
 
     root /var/www/unicornx;
     index index.html;
@@ -107,7 +108,7 @@ sudo systemctl enable nginx
 # --- 6. SSL Certificate (Let's Encrypt) ---
 echo ""
 echo "[6/7] Obtaining SSL certificate..."
-sudo certbot --nginx -d "$DOMAIN" -d "www.$DOMAIN" --non-interactive --agree-tos --email "$EMAIL" --redirect
+sudo certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos --email "$EMAIL" --redirect
 
 # --- 7. Auto-renew cron ---
 echo ""
