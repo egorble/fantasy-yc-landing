@@ -3,7 +3,7 @@ import { Button } from './ui/Button';
 
 export const Footer: React.FC = () => {
     return (
-        <footer className="bg-[#F0F0F0] pt-24 pb-12 flex flex-col items-center justify-center text-center relative overflow-hidden">
+        <footer className="bg-[#F0F0F0] pt-16 sm:pt-24 pb-8 sm:pb-12 flex flex-col items-center justify-center text-center relative overflow-hidden">
 
             {/* Decorative Stacked Cards */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-64 -mt-32 pointer-events-none opacity-20">
@@ -12,23 +12,23 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
-                <h2 className="text-5xl md:text-8xl font-black mb-8 uppercase tracking-tighter leading-none">
+                <h2 className="text-4xl sm:text-5xl md:text-8xl font-black mb-6 sm:mb-8 uppercase tracking-tighter leading-none">
                     Start Your <br /> Portfolio.
                 </h2>
 
                 <div className="flex flex-col items-center gap-6">
-                    <a href="https://app.unicronx.fun" target="_blank" rel="noopener noreferrer">
-                        <Button className="text-xl px-12 py-6 bg-[#F26522] hover:bg-[#ff7b3d] shadow-[8px_8px_0px_0px_#050505]">
+                    <a href="https://app.unicornx.fun/" target="_blank" rel="noopener noreferrer">
+                        <Button className="text-base sm:text-xl px-8 sm:px-12 py-4 sm:py-6 bg-[#F26522] hover:bg-[#ff7b3d] shadow-[4px_4px_0px_0px_#050505] sm:shadow-[8px_8px_0px_0px_#050505]">
                             OPEN FIRST PACK FOR FREE
                         </Button>
                     </a>
 
-                    <a href="https://app.unicronx.fun" target="_blank" rel="noopener noreferrer" className="font-mono font-bold hover:underline hover:text-[#F26522] transition-colors flex items-center gap-2">
+                    <a href="https://app.unicornx.fun/" target="_blank" rel="noopener noreferrer" className="font-mono font-bold hover:underline hover:text-[#F26522] transition-colors flex items-center gap-2">
                         VIEW LEADERBOARD <span className="text-xl">→</span>
                     </a>
                 </div>
 
-                <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 text-left border-t-2 border-black pt-12">
+                <div className="mt-12 sm:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-left border-t-2 border-black pt-8 sm:pt-12">
                     <div>
                         <h5 className="font-bold mb-4 uppercase">Platform</h5>
                         <ul className="space-y-2 font-mono text-sm text-gray-600">

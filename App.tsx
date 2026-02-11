@@ -26,9 +26,9 @@ const App: React.FC = () => {
       <Footer />
       
       {/* Persistent CTA Bottom Right */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <a href="https://app.unicronx.fun" target="_blank" rel="noopener noreferrer">
-          <Button className="hidden md:block bg-[#CCFF00] shadow-[6px_6px_0px_0px_#000] hover:shadow-[8px_8px_0px_0px_#000]">
+      <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50">
+        <a href="https://app.unicornx.fun/" target="_blank" rel="noopener noreferrer">
+          <Button className="text-xs sm:text-sm bg-[#CCFF00] px-3 py-2 sm:px-4 sm:py-2 shadow-[4px_4px_0px_0px_#000] sm:shadow-[6px_6px_0px_0px_#000] hover:shadow-[6px_6px_0px_0px_#000] sm:hover:shadow-[8px_8px_0px_0px_#000]">
               START TRADING
           </Button>
         </a>

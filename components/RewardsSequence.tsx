@@ -5,15 +5,15 @@ import { Button } from './ui/Button';
 
 export const RewardsSequence: React.FC = () => {
     return (
-        <section className="py-24 bg-[#050505] text-white relative overflow-hidden">
+        <section className="py-12 sm:py-24 bg-[#050505] text-white relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
 
                 <div className="flex flex-col md:flex-row items-center gap-12">
 
                     {/* TEXT */}
                     <div className="md:w-1/2">
-                        <h2 className="text-6xl font-black mb-6 uppercase text-[#F26522]">Play for Keeps</h2>
-                        <p className="text-xl font-mono text-gray-400 mb-8 border-l-4 border-[#CCFF00] pl-6">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 sm:mb-6 uppercase text-[#F26522]">Play for Keeps</h2>
+                        <p className="text-base sm:text-xl font-mono text-gray-400 mb-6 sm:mb-8 border-l-4 border-[#CCFF00] pl-4 sm:pl-6">
                             This isn't just paper gains. Convert your fantasy points into real crypto rewards, limited edition merch, and whitelist spots.
                         </p>
 
@@ -52,7 +52,7 @@ export const RewardsSequence: React.FC = () => {
 
                     {/* CRATE VISUAL */}
                     <div className="md:w-1/2 flex justify-center">
-                        <div className="relative w-80 h-80 perspective-1000">
+                        <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 perspective-1000">
                             <motion.div
                                 animate={{ rotateY: 360 }}
                                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}

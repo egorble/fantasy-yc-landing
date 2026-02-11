@@ -162,7 +162,7 @@ export const HeroSequence: React.FC = () => {
                 {/* CARDS CONTAINER */}
                 <motion.div
                     style={{ scale: cardsScale, opacity: cardsOpacity }}
-                    className="absolute z-30 flex items-center justify-center w-full h-full mt-20 sm:mt-24 md:mt-32"
+                    className="absolute z-30 flex items-center justify-center w-full h-full mt-8 sm:mt-16 md:mt-24"
                 >
                     {STARTUPS.map((startup, index) => {
                         // Calculate radial layout — smaller spread on mobile
@@ -244,26 +244,26 @@ export const HeroSequence: React.FC = () => {
                     {/* NEWS FEED OVERLAY (Appears in Stage 4) */}
                     <motion.div
                         style={{ opacity: newsFeedOpacity, x: newsFeedX, y: newsFeedY }}
-                        className="absolute right-2 sm:right-4 md:right-20 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 w-64 sm:w-72 md:w-80 z-50 pointer-events-none"
+                        className="absolute left-2 right-2 bottom-20 sm:left-auto sm:right-4 sm:bottom-auto md:right-20 md:top-1/2 md:-translate-y-1/2 w-auto sm:w-72 md:w-80 z-50 pointer-events-none"
                     >
-                        <div className="bg-black/90 border border-[#CCFF00] p-3 sm:p-4 text-[#CCFF00] font-mono text-xs sm:text-sm mb-2 sm:mb-4 shadow-[4px_4px_0px_0px_#CCFF00]">
-                            <div className="flex items-center gap-2 mb-2 border-b border-[#CCFF00]/30 pb-2">
-                                <Radio className="w-3 h-3 sm:w-4 sm:h-4 animate-pulse" />
-                                <span className="font-bold text-xs sm:text-sm">LIVE SIGNAL</span>
+                        <div className="bg-black/90 border border-[#CCFF00] p-2.5 sm:p-3 md:p-4 text-[#CCFF00] font-mono text-[10px] sm:text-xs md:text-sm mb-1.5 sm:mb-2 md:mb-4 shadow-[4px_4px_0px_0px_#CCFF00]">
+                            <div className="flex items-center gap-2 mb-1.5 sm:mb-2 border-b border-[#CCFF00]/30 pb-1.5 sm:pb-2">
+                                <Radio className="w-3 h-3 sm:w-4 sm:h-4 animate-pulse shrink-0" />
+                                <span className="font-bold text-[10px] sm:text-xs md:text-sm">LIVE SIGNAL</span>
                             </div>
-                            <p className="mb-2 text-xs sm:text-sm">BREAKING: OpenAI announces GPT-5 release date.</p>
-                            <div className="flex justify-between text-[10px] sm:text-xs text-white/70">
+                            <p className="mb-1.5 sm:mb-2 text-[10px] sm:text-xs md:text-sm">BREAKING: OpenAI announces GPT-5 release date.</p>
+                            <div className="flex justify-between text-[8px] sm:text-[10px] md:text-xs text-white/70">
                                 <span>2m ago</span>
                                 <span className="text-[#CCFF00] font-bold">+15% IMPACT</span>
                             </div>
                         </div>
 
-                        <div className="bg-black/80 border-l-4 border-[#F26522] p-3 sm:p-4 text-white font-mono text-xs sm:text-sm shadow-lg">
-                            <div className="flex items-center gap-2 mb-2">
-                                <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-[#F26522]" />
-                                <span className="font-bold text-[#F26522] text-xs sm:text-sm">MARKET REACTION</span>
+                        <div className="bg-black/80 border-l-4 border-[#F26522] p-2.5 sm:p-3 md:p-4 text-white font-mono text-[10px] sm:text-xs md:text-sm shadow-lg">
+                            <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2">
+                                <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-[#F26522] shrink-0" />
+                                <span className="font-bold text-[#F26522] text-[10px] sm:text-xs md:text-sm">MARKET REACTION</span>
                             </div>
-                            <p className="text-xs sm:text-sm">Trading volume up 400% in last hour.</p>
+                            <p className="text-[10px] sm:text-xs md:text-sm">Trading volume up 400% in last hour.</p>
                         </div>
                     </motion.div>
                 </motion.div>

@@ -111,42 +111,42 @@ export const TradingSequence: React.FC = () => {
                     </div>
 
                     {/* SCREEN */}
-                    <div className="w-full h-full bg-gray-50 rounded-[2rem] sm:rounded-[2.4rem] md:rounded-[2.8rem] overflow-hidden relative flex flex-col">
+                    <div className="w-full h-full bg-[#111111] rounded-[2rem] sm:rounded-[2.4rem] md:rounded-[2.8rem] overflow-hidden relative flex flex-col">
 
                         {/* STATUS BAR */}
-                        <div className="h-12 sm:h-14 px-4 sm:px-6 pt-5 sm:pt-6 flex justify-between items-end pb-1 sm:pb-2 bg-white/80 backdrop-blur-sm z-20">
-                            <span className="font-bold text-[10px] sm:text-xs tracking-wide">9:41</span>
+                        <div className="h-12 sm:h-14 px-4 sm:px-6 pt-5 sm:pt-6 flex justify-between items-end pb-1 sm:pb-2 bg-black/60 backdrop-blur-sm z-20">
+                            <span className="font-bold text-[10px] sm:text-xs tracking-wide text-white/80">9:41</span>
                             <div className="flex gap-1">
-                                <div className="w-3 h-2.5 sm:w-4 sm:h-3 bg-black rounded-sm"></div>
-                                <div className="w-0.5 h-2.5 sm:h-3 bg-black/20 rounded-sm"></div>
+                                <div className="w-3 h-2.5 sm:w-4 sm:h-3 bg-white rounded-sm"></div>
+                                <div className="w-0.5 h-2.5 sm:h-3 bg-white/30 rounded-sm"></div>
                             </div>
                         </div>
 
                         {/* APP HEADER */}
                         <div className="px-4 sm:px-6 py-1.5 sm:py-2 flex justify-between items-center z-20">
-                            <span className="font-black text-lg sm:text-xl tracking-tighter">UnicornX</span>
-                            <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-black text-[#CCFF00] font-mono text-[10px] sm:text-xs font-bold rounded">
-                                420.69 PTS
+                            <span className="font-black text-lg sm:text-xl tracking-tighter text-white">UnicornX</span>
+                            <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-[#CCFF00] text-black font-mono text-[10px] sm:text-xs font-bold rounded">
+                                420.69 XTZ
                             </div>
                         </div>
 
                         {/* CARDS AREA */}
-                        <div className="flex-1 relative flex items-center justify-center w-full min-h-[300px] sm:min-h-[350px] md:min-h-[400px]">
+                        <div className="flex-1 relative flex items-center justify-center w-full min-h-0 px-3 sm:px-4 py-2 sm:py-3">
 
                             {/* --- THIRD CARD (Back-most, appears after second swipe) --- */}
                             <motion.div
                                 style={{ scale: card3Scale, y: card3Y, opacity: card3Opacity }}
-                                className="absolute w-[90%] h-[85%] rounded-2xl shadow-xl overflow-hidden origin-bottom"
+                                className="absolute w-[88%] h-[92%] rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden origin-bottom"
                             >
-                                <img src="/1.png" className="w-full h-full object-cover" />
+                                <img src="/4.png" className="w-full h-full object-contain" />
                             </motion.div>
 
                             {/* --- SECOND CARD (Middle, swipes LEFT) --- */}
                             <motion.div
                                 style={{ x: card2X, rotate: card2Rotate, scale: card2Scale, y: card2Y, opacity: card2Opacity }}
-                                className="absolute w-[90%] h-[85%] rounded-2xl shadow-2xl overflow-hidden z-10 origin-bottom-left"
+                                className="absolute w-[88%] h-[92%] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden z-10 origin-bottom-left"
                             >
-                                <img src="/3.png" className="w-full h-full object-cover" />
+                                <img src="/3.png" className="w-full h-full object-contain" />
 
                                 {/* "PASS" OVERLAY */}
                                 <motion.div
@@ -162,9 +162,9 @@ export const TradingSequence: React.FC = () => {
                             {/* --- FIRST CARD (Foreground, swipes RIGHT) --- */}
                             <motion.div
                                 style={{ x: card1X, rotate: card1Rotate, opacity: card1Opacity }}
-                                className="absolute w-[90%] h-[85%] rounded-2xl shadow-2xl overflow-hidden z-20 cursor-grab active:cursor-grabbing origin-bottom-right"
+                                className="absolute w-[88%] h-[92%] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden z-20 cursor-grab active:cursor-grabbing origin-bottom-right"
                             >
-                                <img src="/1.png" className="w-full h-full object-cover" />
+                                <img src="/1.png" className="w-full h-full object-contain" />
 
                                 {/* "BOUGHT" OVERLAY */}
                                 <motion.div
@@ -179,10 +179,10 @@ export const TradingSequence: React.FC = () => {
                         </div>
 
                         {/* APP FOOTER / CONTROLS */}
-                        <div className="h-20 sm:h-24 bg-white/50 backdrop-blur-md border-t border-gray-200 flex items-center justify-evenly px-6 sm:px-8 pb-3 sm:pb-4">
+                        <div className="h-16 sm:h-20 md:h-24 bg-black/40 backdrop-blur-md border-t border-white/10 flex items-center justify-evenly px-6 sm:px-8 pb-2 sm:pb-3 md:pb-4 shrink-0">
                             {/* Pass Button */}
                             <motion.button
-                                className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 transition-colors shadow-sm"
+                                className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 transition-colors shadow-sm"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                             >
@@ -192,7 +192,7 @@ export const TradingSequence: React.FC = () => {
 
                             {/* Super Like / Details */}
                             <motion.button
-                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center hover:bg-blue-100 hover:text-blue-500 transition-colors"
+                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 text-gray-400 flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-400 transition-colors"
                                 whileHover={{ scale: 1.1 }}
                             >
                                 <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-current rounded-full mx-[1px]"></div>
